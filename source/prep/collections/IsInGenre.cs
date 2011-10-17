@@ -1,5 +1,4 @@
-﻿using prep.infrastructure;
-using prep.infrastructure.filtering;
+﻿using prep.infrastructure.filtering;
 
 namespace prep.collections
 {
