@@ -29,12 +29,29 @@ namespace prep.collections
 
         public IEnumerable<Movie> all_movies_published_by_pixar()
         {
-            throw new NotImplementedException();
+            Func<Movie, bool> pixarFunc = (Movie m) =>
+                                              {
+                                                  if (m.production_studio == ProductionStudio.Pixar)
+                                                  {
+                                                      return true;
+                                                  }
+                                                  return false;
+                                              };
+            return GetMovieCollection(pixarFunc);
         }
 
         public IEnumerable<Movie> all_movies_published_by_pixar_or_disney()
         {
-            throw new NotImplementedException();
+            Func<Movie, bool> pixarOrDisneyFunc = (Movie m) =>
+                                                      {
+                                                          if (m.production_studio == ProductionStudio.Pixar ||
+                                                              m.production_studio == ProductionStudio.Disney)
+                                                          {
+                                                              return true;
+                                                          }
+                                                          return false;
+                                                      };
+            return GetMovieCollection(pixarOrDisneyFunc);
         }
 
         public IEnumerable<Movie> sort_all_movies_by_title_ascending()
@@ -49,22 +66,56 @@ namespace prep.collections
 
         public IEnumerable<Movie> all_movies_not_published_by_pixar()
         {
-            throw new NotImplementedException();
+            Func<Movie, bool> nonPixarFunc = (Movie m) =>
+                                                 {
+                                                     if (m.production_studio != ProductionStudio.Pixar)
+                                                     {
+                                                         return true;
+                                                     }
+                                                     return false;
+                                                 };
+            return GetMovieCollection(nonPixarFunc);
         }
 
         public IEnumerable<Movie> all_movies_published_after(int year)
         {
-            throw new NotImplementedException();
+            Func<Movie, bool> afterYearFunc = (Movie m) =>
+                                                  {
+                                                      if (m.date_published.Year > year)
+                                                      {
+                                                          return true;
+                                                      }
+                                                      return false;
+                                                  };
+            return GetMovieCollection(afterYearFunc);
         }
 
         public IEnumerable<Movie> all_movies_published_between_years(int startingYear, int endingYear)
         {
-            throw new NotImplementedException();
+            Func<Movie, bool> betweenYearFunc = (Movie m) =>
+                                                    {
+                                                        if (m.date_published.Year >= startingYear &&
+                                                            m.date_published.Year < endingYear)
+                                                        {
+                                                            return true;
+                                                        }
+                                                        return false;
+                                                    };
+            return GetMovieCollection(betweenYearFunc);
         }
 
         public IEnumerable<Movie> all_kid_movies()
         {
-            throw new NotImplementedException();
+            Func<Movie,bool> kidsMoviesFunc = (Movie m) =>
+                                      {
+                                          if (m.genre == Genre.kids)
+                                          {
+                                              return true;
+                                          }
+                                          return false;
+                                      };
+            return GetMovieCollection(kidsMoviesFunc);
+
         }
 
         public IEnumerable<Movie> all_action_movies()
@@ -81,5 +132,16 @@ namespace prep.collections
         {
             throw new NotImplementedException();
         }
+
+        private IEnumerable<Movie> GetMovieCollection(Func<Movie,bool> inFunc)
+        {
+            foreach (var movie in movies)
+            {
+                if (inFunc.Invoke(movie))
+                {
+                    yield return movie;
+                }
+            }
+        } 
     }
 }
