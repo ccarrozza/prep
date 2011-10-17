@@ -1,12 +1,12 @@
-﻿using System;
-
-namespace prep.collections
+﻿namespace prep.collections
 {
     public class Where<ItemToFilter>
     {
-        public static something has_a(something)
+        public delegate ProductionStudio ProductionStudioAccessor(Movie movie);
+
+        public static ProductionStudioAccessor has_a(ProductionStudioAccessor accessor)
         {
-            throw new NotImplementedException();
+            return accessor;
         }
     }
 }
