@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using prep.infrastructure;
+using prep.infrastructure.filtering;
 
 namespace prep.collections
 {
@@ -35,17 +36,11 @@ namespace prep.collections
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Movie> get_all_movies_matching(MovieCondition condition)
+        public IEnumerable<Movie> get_all_movies_matching(Condition<Movie> condition)
         {
-            return movies.all_items_matching()
+            return movies.all_items_matching(condition);
         }
 
-        public delegate bool MovieCondition(Movie movie);
-
-        bool is_published_by_pixar(Movie  movie)
-        {
-            return movie.production_studio == ProductionStudio.Pixar;
-        }
 
         bool is_published_by_pixar_or_disney(Movie movie)
         {
