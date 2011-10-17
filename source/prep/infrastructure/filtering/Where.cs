@@ -1,11 +1,12 @@
+using System;
+
 namespace prep.infrastructure.filtering
 {
     public class Where<ItemToFilter>
     {
-        public static something has_a<PropertyType>(PropertyAccessor<ItemToFilter,PropertyType> accessor)
+        public static CriteriaFactory<ItemToFilter, PropertyType> has_a<PropertyType>(Func<ItemToFilter, PropertyType> accessor)
         {
-            throw new NotImplementedException();
+            return new CriteriaFactory<ItemToFilter, PropertyType>(accessor);
         }
     }
-
 }
