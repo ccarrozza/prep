@@ -64,7 +64,6 @@
     <Compile Include="collections\MovieLibrary.cs" />
     <Compile Include="collections\ProductionStudio.cs" />
     <Compile Include="collections\ReadOnlySetOf.cs" />
-    <Compile Include="collections\Where.cs" />
     <Compile Include="infrastructure\filtering\AndMatch.cs" />
     <Compile Include="infrastructure\filtering\AnonymousMatch.cs" />
     <Compile Include="infrastructure\filtering\BinaryMatch.cs" />
@@ -73,6 +72,8 @@
     <Compile Include="infrastructure\EnumerableExtensions.cs" />
     <Compile Include="infrastructure\filtering\IMatchA.cs" />
     <Compile Include="infrastructure\filtering\OrMatch.cs" />
+    <Compile Include="infrastructure\filtering\PropertyAccessor.cs" />
+    <Compile Include="infrastructure\filtering\Where.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

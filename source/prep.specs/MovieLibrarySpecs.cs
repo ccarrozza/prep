@@ -195,6 +195,7 @@ namespace prep.specs
              * movies using different criteria. Feel free to change/remove explicit methods if you find a way to encompass searching
              * without the need for using explicit methods. For this exercise, no linq queries are allowed!!.*/
 
+
             It should_be_able_to_find_all_movies_published_by_pixar = () =>
             {
                 var criteria = Where<Movie>.has_a(x => x.production_studio).equal_to(ProductionStudio.Pixar);
