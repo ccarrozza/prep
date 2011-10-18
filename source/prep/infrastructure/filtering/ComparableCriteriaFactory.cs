@@ -36,9 +36,14 @@ namespace prep.infrastructure.filtering
             return new AnonymousMatch<ItemToFilter>(x => accessor(x).CompareTo(value) > 0);
         }
 
+        public IMatchA<ItemToFilter> less_than(PropertyType value)
+        {
+            return new AnonymousMatch<ItemToFilter>(x => accessor(x).CompareTo(value) < 0);
+        } 
+
         public IMatchA<ItemToFilter> between(PropertyType start,PropertyType end)
         {
-            throw new NotImplementedException();
+            return greater_than(start).or(less_than(end));
         }
     }
 }
