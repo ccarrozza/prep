@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace prep.infrastructure.filtering
 {
-    public class CriteriaFactory<ItemToFilter, PropertyType>
+    public class CriteriaFactory<ItemToFilter, PropertyType> 
     {
         Func<ItemToFilter, PropertyType> accessor;
 
@@ -24,7 +24,7 @@ namespace prep.infrastructure.filtering
 
         public IMatchA<ItemToFilter> not_equal_to(PropertyType value)
         {
-            throw new NotImplementedException();
+            return equal_to(value).not();
         }
     }
 }

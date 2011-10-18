@@ -8,5 +8,10 @@ namespace prep.infrastructure.filtering
         {
             return new CriteriaFactory<ItemToFilter, PropertyType>(accessor);
         }
+
+        public static ComparableCriteriaFactory<ItemToFilter,PropertyType> has_an<PropertyType>(Func<ItemToFilter, PropertyType> accessor) where PropertyType : IComparable<PropertyType>
+        {
+            return new ComparableCriteriaFactory<ItemToFilter, PropertyType>(accessor);
+        }
     }
 }
