@@ -18,7 +18,15 @@ namespace prep.infrastructure.filtering
 
         public IMatchA<ItemToFilter> equal_to_any(params PropertyType[] values)
         {
-            throw new NotImplementedException();
+           return new AnonymousMatch<ItemToFilter>(x =>
+              {
+                  foreach (var value in values)
+                  {
+                      if (accessor(x).Equals(value)) return true;
+                  }
+                  return false;
+              }             
+            );
         }
     }
 }
