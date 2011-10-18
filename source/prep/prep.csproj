@@ -72,6 +72,7 @@
     <Compile Include="infrastructure\EnumerableExtensions.cs" />
     <Compile Include="infrastructure\filtering\CriteriaFactory.cs" />
     <Compile Include="infrastructure\filtering\IMatchA.cs" />
+    <Compile Include="infrastructure\filtering\NeverMatches.cs" />
     <Compile Include="infrastructure\filtering\OrMatch.cs" />
     <Compile Include="infrastructure\filtering\Where.cs" />
   </ItemGroup>
