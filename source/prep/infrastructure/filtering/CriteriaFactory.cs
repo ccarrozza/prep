@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace prep.infrastructure.filtering
 {
-    public class CriteriaFactory<ItemToFilter, PropertyType> 
+    public class CriteriaFactory<ItemToFilter, PropertyType> : ICreateMatchers<ItemToFilter, PropertyType>
     {
         Func<ItemToFilter, PropertyType> accessor;
 

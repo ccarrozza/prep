@@ -11,7 +11,7 @@ namespace prep.infrastructure.filtering
 
         public static ComparableCriteriaFactory<ItemToFilter,PropertyType> has_an<PropertyType>(Func<ItemToFilter, PropertyType> accessor) where PropertyType : IComparable<PropertyType>
         {
-            return new ComparableCriteriaFactory<ItemToFilter, PropertyType>(accessor);
+            return new ComparableCriteriaFactory<ItemToFilter, PropertyType>(accessor,has_a(accessor));
         }
     }
 }
