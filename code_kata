@@ -1,6 +1,7 @@
 ./save_my_changes
 
 git checkout -b code_kata
+git checkout code_kata
 
 
 
